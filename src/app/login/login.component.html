@@ -1,0 +1,43 @@
+<div class="background">
+</div>
+<mat-card class="login-container">
+  <mat-card-title>Login</mat-card-title>
+  <br>
+  <mat-card-content>
+
+  <form #form="ngForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input
+        type="text"
+        matInput
+        name="username"
+        autocomplete="off"
+        [(ngModel)]="username">
+    </mat-form-field>
+
+    <br><br>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        name="password"
+        [(ngModel)]="password">
+    </mat-form-field>
+
+    <br><br>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      (click)="onLogin()">Login</button>
+    <button
+      mat-stroked-button
+      routerLink="/register"
+      type="button">Register</button>
+  </form>
+  </mat-card-content>
+</mat-card>

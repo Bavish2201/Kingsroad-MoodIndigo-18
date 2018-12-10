@@ -1,0 +1,57 @@
+<mat-card class="container .mat-elevation-z0">
+
+  <h1>Welcome {{username}}</h1>
+
+ <div *ngIf="!createTeamMode">
+    <h2>You are not part of any team yet</h2>
+
+    <button mat-stroked-button
+      type="button" (click)="createTeamMode = true">Create New Team</button>
+
+  </div>
+
+  <div *ngIf="createTeamMode">
+    <mat-form-field appearance="outline">
+        <mat-label>Team Name</mat-label>
+        <input matInput type="text" >
+      </mat-form-field>
+
+    <h2>Enter Usernames of your team members </h2>
+    <p class="info-text">
+      Note: The team members should have already registerd.
+      If not, please ask them to register first and then proceed.
+    </p>
+
+    <p>Team Member 1: {{username}}</p>
+
+    <br>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Team Member 2</mat-label>
+      <input matInput type="text" [(ngModel)]="username2">
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Team Member 3</mat-label>
+      <input matInput type="text" [(ngModel)]="username3">
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Team Member 4</mat-label>
+      <input matInput type="text" [(ngModel)]="username4">
+    </mat-form-field>
+
+    <br>
+
+    <button mat-stroked-button
+      color="primary"
+      type="button"
+      (click)="onCreateTeam()">Create</button>
+
+  </div>
+
+</mat-card>
