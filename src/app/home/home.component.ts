@@ -11,10 +11,14 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    if (sessionStorage.getItem('currentUser') === null) {
-      this.router.navigate(['/login']);
+    if (sessionStorage.getItem('currentUser') === 'null' ||
+        sessionStorage.getItem('currentUser') === null) {
+      this.router.navigate(['login']);
+    } else if (sessionStorage.getItem('teamid') === 'null' ||
+      sessionStorage.getItem('currentUser') === null) {
+      this.router.navigate(['create-team']);
     } else {
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['dashboard']);
     }
   }
 

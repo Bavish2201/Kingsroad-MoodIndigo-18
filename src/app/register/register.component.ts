@@ -12,15 +12,29 @@ export class RegisterComponent implements OnInit {
   username: string;
   password: string;
   email: string;
+  private showError = false;
+  private errorText = '';
 
   constructor(public userService: UserService,
               public router: Router) { }
 
   ngOnInit() {
+    sessionStorage.removeItem('currentUser');
   }
 
   onRegister() {
-    this.userService.registerUser(this.username, this.email, this.password);
+    this.userService.registerUser(this.username, this.email, this.password)
+    .subscribe(resData => {
+      if (resData.status === 200) {
+        this.showError = false;
+        sessionStorage.setItem('currentUser', resData.user_id);
+        sessionStorage.setItem('username', resData.username);
+        this.router.navigate(['create-team']);
+      } else {
+        this.showError = true;
+        this.errorText = 'Username already exists';
+      }
+    });
   }
 
 }

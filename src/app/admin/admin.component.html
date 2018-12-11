@@ -1,0 +1,39 @@
+<div class="login-card" *ngIf="!loggedIn">
+
+  <mat-card>
+    <mat-card-title>Admin Login</mat-card-title>
+    <br>
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input matInput type="text" [(ngModel)]="username" />
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input matInput type="text" [(ngModel)]="password" />
+    </mat-form-field>
+
+    <br>
+
+    <button mat-raised-button color="primary" (click)="onLogin()" >Login</button>
+  </mat-card>
+
+</div>
+
+<div *ngIf="loggedIn">
+
+  <div class="logout-button" (click)="onLogout()">
+    Logout
+  </div>
+  Total number of registerd users: {{usersCount}}
+  <button mat-button (click)="deleteAllUsers()">Delete All Users</button>
+
+  <div class="leaderboard">
+    <div *ngFor="let team of teams">
+      {{team.teamname}} | {{team.gold}} <br><br>
+    </div>
+  </div>
+
+</div>

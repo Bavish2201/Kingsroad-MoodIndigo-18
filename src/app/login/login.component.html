@@ -29,6 +29,10 @@
 
     <br><br>
 
+    <div class="error-message" *ngIf="showError">
+      {{errorText}}
+    </div>
+
     <button
       mat-raised-button
       color="primary"

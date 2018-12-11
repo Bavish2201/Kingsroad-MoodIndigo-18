@@ -21,6 +21,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TeamCreateComponent } from './team-create/team-create.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { TeamCreateComponent } from './team-create/team-create.component';
     RegisterComponent,
     HomeComponent,
     DashboardComponent,
-    TeamCreateComponent
+    TeamCreateComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

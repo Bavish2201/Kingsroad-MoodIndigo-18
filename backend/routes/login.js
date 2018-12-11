@@ -8,6 +8,7 @@ router.post('', (req, res, err) => {
     console.log(usrData);
     if (usrData) {
       res.json({
+        status: 200,
         message: "Successful",
         user: usrData._id,
         username: usrData.username,
@@ -16,6 +17,7 @@ router.post('', (req, res, err) => {
     }
     else {
       res.json({
+        status: 401,
         message: "Invalid username and password"
       });
     }

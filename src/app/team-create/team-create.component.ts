@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-team-create',
@@ -16,7 +17,10 @@ export class TeamCreateComponent implements OnInit {
   username3: string;
   username4: string;
 
-  constructor(public userService: UserService) { }
+  private showError = false;
+  private errorText = '';
+
+  constructor(public userService: UserService, public router: Router) { }
 
   ngOnInit() {
     this.username = sessionStorage.getItem('username');
@@ -24,7 +28,22 @@ export class TeamCreateComponent implements OnInit {
 
   onCreateTeam() {
     this.userService.createTeam(this.teamname, this.username, this.username2,
-      this.username3, this.username4);
+      this.username3, this.username4).subscribe(resData => {
+        console.log(resData);
+        if (resData.status === 200) {
+          this.showError = false;
+        } else {
+          this.showError = true;
+          this.errorText = resData.message;
+        }
+      });
+  }
+
+  onLogout() {
+    sessionStorage.removeItem('currentUser');
+    sessionStorage.removeItem('teamid');
+    sessionStorage.removeItem('username');
+    this.router.navigate(['']);
   }
 
 }
