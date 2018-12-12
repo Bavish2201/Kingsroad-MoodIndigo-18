@@ -1,0 +1,17 @@
+<mat-toolbar  class="header">
+  <span>Leaderboard</span>
+  <span class="fill"></span>
+  <span><button mat-stroked-button (click)="refreshLeaderboard()">Refresh</button></span>
+</mat-toolbar>
+
+
+<div class="container">
+  <mat-list>
+    <mat-list-item *ngFor="let team of teams; let i = index">
+      {{i+1}}) <div class="teamname"> {{team.teamname}} </div>
+      <div class="teamdetails">
+       {{team.gold}}
+      </div>
+    </mat-list-item>
+  </mat-list>
+</div>

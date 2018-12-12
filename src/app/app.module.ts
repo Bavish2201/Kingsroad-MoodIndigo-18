@@ -12,7 +12,9 @@ import { MatInputModule,
   MatToolbarModule,
   MatExpansionModule,
   MatProgressSpinnerModule,
-  MatDividerModule } from '@angular/material';
+  MatDividerModule,
+  MatMenuModule,
+  MatListModule } from '@angular/material';
 
 
 import { AppComponent } from './app.component';
@@ -22,6 +24,9 @@ import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TeamCreateComponent } from './team-create/team-create.component';
 import { AdminComponent } from './admin/admin.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { TradeComponent } from './trade/trade.component';
+import { ControlPanelComponent } from './control-panel/control-panel.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +36,10 @@ import { AdminComponent } from './admin/admin.component';
     HomeComponent,
     DashboardComponent,
     TeamCreateComponent,
-    AdminComponent
+    AdminComponent,
+    LeaderboardComponent,
+    TradeComponent,
+    ControlPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +55,9 @@ import { AdminComponent } from './admin/admin.component';
     MatToolbarModule,
     MatExpansionModule,
     MatProgressSpinnerModule,
-    MatDividerModule
+    MatDividerModule,
+    MatMenuModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

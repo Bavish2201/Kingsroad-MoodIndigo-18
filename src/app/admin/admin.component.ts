@@ -13,7 +13,6 @@ export class AdminComponent implements OnInit {
   private loggedIn  = false;
 
   private usersCount: Number;
-  private teams = [];
 
   constructor(public adminService: AdminService) { }
 
@@ -27,7 +26,6 @@ export class AdminComponent implements OnInit {
   onLogin() {
     if (this.username === 'admin' && this.password === 'admin') {
       this.loggedIn = true;
-      this.refreshLeaderboard();
       sessionStorage.setItem('adminLoggedIn', 'true');
     } else {
       alert('Invalid Username or password');
@@ -54,12 +52,4 @@ export class AdminComponent implements OnInit {
       }
     });
   }
-
-  refreshLeaderboard() {
-    this.adminService.getLeaderboard().subscribe(response => {
-      console.log(response);
-      this.teams = response.leaderboard;
-    });
-  }
-
 }

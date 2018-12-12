@@ -24,6 +24,14 @@ const teamSchema = mongoose.Schema({
   gold: {
     type: Number,
     default: 100
+  },
+  resources: {
+    food: {
+      type: Number
+    },
+    military: {
+      type: Number
+    }
   }
 })
 

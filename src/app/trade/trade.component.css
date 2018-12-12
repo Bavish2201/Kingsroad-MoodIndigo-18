@@ -1,0 +1,8 @@
+.container {
+  margin: 10px;
+}
+
+
+mat-toolbar {
+  border-radius: 10px 10px 0px 0px;
+}

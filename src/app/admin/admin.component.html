@@ -22,18 +22,34 @@
 
 </div>
 
-<div *ngIf="loggedIn">
+<div *ngIf="loggedIn" class="container">
 
-  <div class="logout-button" (click)="onLogout()">
-    Logout
+    <mat-toolbar color="primary">
+      <span>Kingsroad Admin</span>
+
+      <!-- This fills the remaining space of the current row -->
+      <span class="example-fill-remaining-space"></span>
+
+      <span class="small-screen">
+        <button mat-button (click)="onLogout()">Logout</button>
+      </span>
+    </mat-toolbar>
+
+  <div>
+    Total number of registerd users: {{usersCount}}
+    <button mat-button (click)="deleteAllUsers()">Delete All Users</button>
   </div>
-  Total number of registerd users: {{usersCount}}
-  <button mat-button (click)="deleteAllUsers()">Delete All Users</button>
 
-  <div class="leaderboard">
-    <div *ngFor="let team of teams">
-      {{team.teamname}} | {{team.gold}} <br><br>
-    </div>
-  </div>
+  <mat-card class="card .mat-elevation-z0">
+    <app-leaderboard></app-leaderboard>
+  </mat-card>
 
+  <mat-card class="card .mat-elevation-z0">
+    <app-trade></app-trade>
+  </mat-card>
+
+  <mat-card class="card .mat-elevation-z0">
+    <app-control-panel></app-control-panel>
+  </mat-card>
 </div>
+

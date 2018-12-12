@@ -1,0 +1,29 @@
+.fill {
+  flex: 1 1 auto;
+}
+
+
+.teamname {
+  font-weight: 200;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.teamdetails {
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+mat-list {
+  overflow: auto;
+  height: 400px;
+  margin: 2px;
+}
+
+mat-toolbar {
+  border-radius: 10px 10px 0px 0px;
+}
+
+button {
+  border-radius: 20px;
+}

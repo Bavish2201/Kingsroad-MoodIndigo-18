@@ -31,6 +31,10 @@ router.get('/leaderboard', (req, res, err) => {
   });
 });
 
+router.post('/trade', (req, res, err) => {
+
+});
+
 router.get('/users/delete-all', (req, res, err) => {
   User.deleteMany({}, err => {
     if (err) {

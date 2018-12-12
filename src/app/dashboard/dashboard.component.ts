@@ -8,9 +8,17 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
+  username: string;
+
   constructor(public router: Router) { }
 
   ngOnInit() {
+    this.username = sessionStorage.getItem('username');
+  }
+
+  logout() {
+    sessionStorage.clear();
+    this.router.navigate(['']);
   }
 
 }
