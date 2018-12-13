@@ -12,8 +12,8 @@ export class RegisterComponent implements OnInit {
   username: string;
   password: string;
   email: string;
-  private showError = false;
-  private errorText = '';
+  showError = false;
+  errorText = '';
 
   constructor(public userService: UserService,
               public router: Router) { }

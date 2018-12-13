@@ -10,8 +10,6 @@
 
 .invest-board {
   margin: 15px auto;
-  background-color: rgb(233, 233, 233);
-  border-radius: 0px;
 }
 
 input[type="number"] {

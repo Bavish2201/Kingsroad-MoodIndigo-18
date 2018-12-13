@@ -17,8 +17,8 @@ export class TeamCreateComponent implements OnInit {
   username3: string;
   username4: string;
 
-  private showError = false;
-  private errorText = '';
+  showError = false;
+  errorText = '';
 
   constructor(public userService: UserService, public router: Router) { }
 

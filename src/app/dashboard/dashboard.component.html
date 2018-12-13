@@ -7,18 +7,20 @@
   <span class="small-screen">
     <button mat-button [matMenuTriggerFor]="menu">Menu</button>
     <mat-menu #menu="matMenu">
+      <button mat-menu-item >Storyline</button>
       <button mat-menu-item (click)="logout()">Logout</button>
     </mat-menu>
   </span>
   <span class="wide-screen">
+    <button mat-button>Storyline</button>
     <button mat-button (click)="logout()">Logout</button>
   </span>
 </mat-toolbar>
 
 <div class="container">
-  <mat-card class="invest-board .mat-elevation-z0">
+  <mat-card class="invest-board .mat-elevation-z0" *ngIf="!invested">
     <mat-card-title>
-      Round: {{round_number}}
+      Invest
     </mat-card-title>
     <mat-card-content>
       <p class="points">Available Points: {{points}}</p>
@@ -45,10 +47,15 @@
       <br>
 
       <mat-card-actions>
-        <button mat-raised-button color="primary">Invest</button>
+        <button mat-raised-button color="primary" (click)="invest()">Invest</button>
         <button mat-raised-button >Clear</button>
       </mat-card-actions>
 
     </mat-card-content>
+  </mat-card>
+
+  <mat-card class="mat-elevation-z0" *ngIf="invested">
+    You have already invested <br><br>
+    <button mat-stroked-button color="primary">Refresh</button>
   </mat-card>
 </div>

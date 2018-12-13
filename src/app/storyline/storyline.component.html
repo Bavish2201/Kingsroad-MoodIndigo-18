@@ -1,0 +1,57 @@
+<mat-toolbar color="primary">
+  <span>Kingsroad Admin</span>
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="example-fill-remaining-space"></span>
+
+  <span>
+    <button mat-button (click)="home()">Home</button>
+  </span>
+
+  <span>
+    <button mat-button (click)="onLogout()">Logout</button>
+  </span>
+</mat-toolbar>
+
+<mat-card>
+  <mat-card-title>Add Storyline</mat-card-title>
+  <mat-form-field class="text-form" appearance="outline">
+    <mat-label>
+      Question
+    </mat-label>
+    <textarea matInput [(ngModel)]="question"></textarea>
+  </mat-form-field>
+  <p>Return Ratio:</p>
+  <mat-form-field appearance="outline">
+    <mat-label>Food</mat-label>
+    <input matInput type="number" min="0" step="0.01" [(ngModel)]="food_ratio"/>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Military</mat-label>
+    <input matInput type="number" min="0" step="0.01" [(ngModel)]="military_ratio"/>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Research</mat-label>
+    <input matInput type="number" min="0" step="0.01" [(ngModel)]="research_ratio"/>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Others</mat-label>
+    <input matInput type="number" min="0" max="1" step="0.01" [(ngModel)]="other_ratio"/>
+  </mat-form-field>
+  <br>
+  <button mat-raised-button color="primary" (click)="saveStoryline()">Save</button>
+</mat-card>
+
+
+<mat-card *ngFor="let story of storylines; let i = index">
+  <p>{{story.question}}</p>
+  <p>Interest rates:
+    Food {{story.food_return_ratio}},
+    Military {{story.military_return_ratio}},
+    Research {{story.research_return_ratio}},
+    Others {{story.other_return_ratio}} </p>
+  <mat-card-actions>
+    <button mat-stroked-button class="action-button">Set Current Storyline</button>
+    <button mat-stroked-button class="action-button" (click)="deleteStoryline(i)">Delete</button>
+  </mat-card-actions>
+</mat-card>

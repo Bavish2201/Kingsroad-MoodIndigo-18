@@ -22,7 +22,23 @@ export class AdminService {
   }
 
   deleteAllUsers() {
-    return this.http.get<any>('http://localhost:3000/api/admin/users/delete-all');
+    return this.http.delete<any>('http://localhost:3000/api/admin/users/delete-all');
+  }
+
+  deleteAllTeams() {
+    return this.http.delete<any>('http://localhost:3000/api/admin/teams/delete-all');
+  }
+
+  addStoryline(postData) {
+    return this.http.post<any>('http://localhost:3000/api/admin/storyline', postData);
+  }
+
+  getStorylines() {
+    return this.http.get<any>('http://localhost:3000/api/admin/storyline');
+  }
+
+  deleteStoryline(id: string) {
+    return this.http.delete<any>('http://localhost:3000/api/admin/storyline/' + id);
   }
 
 }

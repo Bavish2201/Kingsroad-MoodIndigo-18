@@ -9,11 +9,17 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   username: string;
+  invested = false;
+  points: number;
 
   constructor(public router: Router) { }
 
   ngOnInit() {
     this.username = sessionStorage.getItem('username');
+  }
+
+  invest() {
+    this.invested = true;
   }
 
   logout() {

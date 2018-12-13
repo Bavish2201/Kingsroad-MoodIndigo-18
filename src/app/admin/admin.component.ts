@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -8,13 +9,13 @@ import { AdminService } from '../admin.service';
 })
 export class AdminComponent implements OnInit {
 
-  private username: string;
-  private password: string;
-  private loggedIn  = false;
+  username: string;
+  password: string;
+  loggedIn  = false;
 
-  private usersCount: Number;
+  usersCount: Number;
 
-  constructor(public adminService: AdminService) { }
+  constructor(public adminService: AdminService, public router: Router) { }
 
   ngOnInit() {
     if (sessionStorage.getItem('adminLoggedIn') === 'true') {
@@ -34,7 +35,11 @@ export class AdminComponent implements OnInit {
 
   onLogout() {
     this.loggedIn = false;
-    sessionStorage.setItem('adminLoggedIn', 'false');
+    sessionStorage.removeItem('adminLoggedIn');
+  }
+
+  showStorylines() {
+    this.router.navigate(['admin-storyline']);
   }
 
   updateUsersCount() {
@@ -45,11 +50,14 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  deleteAllUsers() {
+  deleteAllUsersAndTeams() {
     this.adminService.deleteAllUsers().subscribe(response => {
       if (response.status === 201) {
         this.updateUsersCount();
       }
+    });
+    this.adminService.deleteAllTeams().subscribe(res => {
+
     });
   }
 }

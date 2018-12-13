@@ -27,6 +27,7 @@ import { AdminComponent } from './admin/admin.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { TradeComponent } from './trade/trade.component';
 import { ControlPanelComponent } from './control-panel/control-panel.component';
+import { StorylineComponent } from './storyline/storyline.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ControlPanelComponent } from './control-panel/control-panel.component';
     AdminComponent,
     LeaderboardComponent,
     TradeComponent,
-    ControlPanelComponent
+    ControlPanelComponent,
+    StorylineComponent
   ],
   imports: [
     BrowserModule,

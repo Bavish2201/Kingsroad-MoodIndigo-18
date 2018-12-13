@@ -8,7 +8,7 @@ import { AdminService } from '../admin.service';
 })
 export class LeaderboardComponent implements OnInit {
 
-  private teams = [];
+  teams = [];
 
   constructor(public adminService: AdminService) { }
 

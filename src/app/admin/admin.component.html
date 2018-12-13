@@ -30,7 +30,11 @@
       <!-- This fills the remaining space of the current row -->
       <span class="example-fill-remaining-space"></span>
 
-      <span class="small-screen">
+      <span>
+        <button mat-button (click)="showStorylines()">Storyline</button>
+      </span>
+
+      <span>
         <button mat-button (click)="onLogout()">Logout</button>
       </span>
     </mat-toolbar>
@@ -44,12 +48,5 @@
     <app-leaderboard></app-leaderboard>
   </mat-card>
 
-  <mat-card class="card .mat-elevation-z0">
-    <app-trade></app-trade>
-  </mat-card>
-
-  <mat-card class="card .mat-elevation-z0">
-    <app-control-panel></app-control-panel>
-  </mat-card>
 </div>
 
