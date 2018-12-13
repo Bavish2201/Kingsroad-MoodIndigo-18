@@ -20,6 +20,9 @@ export class LeaderboardComponent implements OnInit {
     this.adminService.getLeaderboard().subscribe(response => {
       console.log(response);
       this.teams = response.leaderboard;
+      this.teams.sort((a, b) => {
+        return b.gold - a.gold;
+      });
     });
   }
 }

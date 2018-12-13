@@ -8,10 +8,6 @@
   align-items: center;
 }
 
-.invest-board {
-  margin: 15px auto;
-}
-
 input[type="number"] {
   max-width: 200px;
   width: 80%;

@@ -24,28 +24,34 @@
 
 <div *ngIf="loggedIn" class="container">
 
-    <mat-toolbar color="primary">
-      <span>Kingsroad Admin</span>
+  <mat-toolbar color="primary">
+    <span>Kingsroad Admin</span>
 
-      <!-- This fills the remaining space of the current row -->
-      <span class="example-fill-remaining-space"></span>
+    <!-- This fills the remaining space of the current row -->
+    <span class="example-fill-remaining-space"></span>
 
-      <span>
-        <button mat-button (click)="showStorylines()">Storyline</button>
-      </span>
+    <span>
+      <button mat-button (click)="showStorylines()">Storyline</button>
+    </span>
 
-      <span>
-        <button mat-button (click)="onLogout()">Logout</button>
-      </span>
-    </mat-toolbar>
-
-  <div>
-    Total number of registerd users: {{usersCount}}
-    <button mat-button (click)="deleteAllUsers()">Delete All Users</button>
-  </div>
+    <span>
+      <button mat-button (click)="onLogout()">Logout</button>
+    </span>
+  </mat-toolbar>
 
   <mat-card class="card .mat-elevation-z0">
     <app-leaderboard></app-leaderboard>
+  </mat-card>
+
+  <mat-card class="card .mat-elevation-z0">
+    <mat-card-title>Current Storyline</mat-card-title>
+    {{currentStoryline}}
+    <br><br>
+    <button mat-stroked-button color="primary" (click)="showStorylines()" >Change Storyline</button>
+  </mat-card>
+
+  <mat-card class="card .mat-elevation-z0">
+    <app-control-panel></app-control-panel>
   </mat-card>
 
 </div>

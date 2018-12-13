@@ -28,6 +28,8 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { TradeComponent } from './trade/trade.component';
 import { ControlPanelComponent } from './control-panel/control-panel.component';
 import { StorylineComponent } from './storyline/storyline.component';
+import { InvestComponent } from './invest/invest.component';
+import { TeamStorylineComponent } from './team-storyline/team-storyline.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { StorylineComponent } from './storyline/storyline.component';
     LeaderboardComponent,
     TradeComponent,
     ControlPanelComponent,
-    StorylineComponent
+    StorylineComponent,
+    InvestComponent,
+    TeamStorylineComponent
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@ export class AdminComponent implements OnInit {
   password: string;
   loggedIn  = false;
 
-  usersCount: Number;
+  currentStoryline: string;
 
   constructor(public adminService: AdminService, public router: Router) { }
 
@@ -21,7 +21,7 @@ export class AdminComponent implements OnInit {
     if (sessionStorage.getItem('adminLoggedIn') === 'true') {
       this.loggedIn = true;
     }
-    this.updateUsersCount();
+    this.refreshStoryline();
   }
 
   onLogin() {
@@ -42,22 +42,11 @@ export class AdminComponent implements OnInit {
     this.router.navigate(['admin-storyline']);
   }
 
-  updateUsersCount() {
-     this.adminService.getUsersCount().subscribe(response => {
+  refreshStoryline() {
+    this.adminService.getCurrentStoryline().subscribe(response => {
       if (response.status === 200) {
-        this.usersCount = response.count;
+        this.currentStoryline = response.storyline.question;
       }
-    });
-  }
-
-  deleteAllUsersAndTeams() {
-    this.adminService.deleteAllUsers().subscribe(response => {
-      if (response.status === 201) {
-        this.updateUsersCount();
-      }
-    });
-    this.adminService.deleteAllTeams().subscribe(res => {
-
     });
   }
 }

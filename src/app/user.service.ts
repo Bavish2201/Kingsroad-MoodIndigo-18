@@ -38,5 +38,16 @@ export class UserService {
       });
     }
 
+    getCurrentTeam(teamid: string) {
+      return this.http.post<any>('http://localhost:3000/api/team', {teamid: teamid});
+    }
+
+    update_gold(teamid: string, gold: number) {
+      return this.http.post<any>('http://localhost:3000/api/team/update_gold', {
+        teamid: teamid,
+        gold: gold
+      });
+    }
+
 }
 

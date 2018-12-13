@@ -5,22 +5,6 @@ const User = require('../models/user');
 const Team = require('../models/team');
 const Storyline = require('../models/storyline');
 
-router.get('/count/user', (req, res, err) => {
-  User.count({}, (err, count) => {
-    if (err) {
-      res.json({
-        status: 401,
-        message: err
-      })
-    } else {
-      res.json({
-        status: 200,
-        count: count
-      })
-    }
-  })
-});
-
 router.get('/leaderboard', (req, res, err) => {
   Team.find({}, (err, docs) => {
     if (!err) {
@@ -80,6 +64,31 @@ router.delete('/storyline/:id', (req, res, next) => {
   })
 })
 
+router.put('/storyline/change', (req, res, next) => {
+  Storyline.findOne({current: true}).then(currStoryline => {
+    if (currStoryline) {
+      Storyline.findOneAndUpdate({current: true}, {$set: {current: false}}, (err, doc, r) => {});
+    }
+    Storyline.findOneAndUpdate({_id: req.body.id}, {$set: {current: true}}, (err, doc, r) => {});
+    Team.updateMany({}, {$set:{invested: false}}, (err, obj) => {
+      res.json({
+        status: 200
+      });
+    });
+  });
+});
+
+router.get('/storyline/current', (req, res, next) => {
+  Storyline.findOne({current: true}, (err, obj) => {
+    if (!err) {
+      res.json({
+        status: 200,
+        storyline: obj
+      })
+    }
+  })
+})
+
 router.delete('/users/delete-all', (req, res, err) => {
   User.deleteMany({}, err => {
     if (err) {
@@ -112,8 +121,48 @@ router.delete('/teams/delete-all', (req, res, err) => {
   })
 })
 
-router.get('count/team', (req, res, err) => {
+router.get('/count/user', (req, res, err) => {
+  User.count({}, (err, count) => {
+    if (err) {
+      res.json({
+        status: 401,
+        message: err
+      })
+    } else {
+      res.json({
+        status: 200,
+        count: count
+      })
+    }
+  })
+});
 
+router.get('/count/team', (req, res, err) => {
+  Team.count({}, (err, count) => {
+    if (err) {
+      res.json({
+        status: 401,
+        message: err
+      })
+    } else {
+      res.json({
+        status: 200,
+        count: count
+      })
+    }
+  })
+});
+
+// get invested count
+router.get('/count/invested', (req, res, err) => {
+  Team.count({invested: true}, (err, count) => {
+    if (!err) {
+      res.json({
+        status: 200,
+        count: count
+      });
+    }
+  });
 });
 
 

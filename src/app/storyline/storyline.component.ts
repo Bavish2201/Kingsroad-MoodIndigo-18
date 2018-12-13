@@ -68,6 +68,13 @@ export class StorylineComponent implements OnInit {
     });
   }
 
+  setCurrentStoryline(_id: number) {
+    const id = this.storylines[_id]._id;
+    this.adminService.setCurrentStoryline(id).subscribe(res => {
+      this.home();
+    });
+  }
+
   onLogout() {
     sessionStorage.removeItem('adminLoggedIn');
     this.home();

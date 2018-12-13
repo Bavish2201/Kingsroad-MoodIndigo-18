@@ -51,7 +51,7 @@
     Research {{story.research_return_ratio}},
     Others {{story.other_return_ratio}} </p>
   <mat-card-actions>
-    <button mat-stroked-button class="action-button">Set Current Storyline</button>
+    <button mat-stroked-button class="action-button" (click)="setCurrentStoryline(i)">Set Current Storyline</button>
     <button mat-stroked-button class="action-button" (click)="deleteStoryline(i)">Delete</button>
   </mat-card-actions>
 </mat-card>

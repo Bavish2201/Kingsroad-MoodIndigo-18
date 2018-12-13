@@ -13,8 +13,12 @@ export class AdminService {
     return this.http.get<any>('http://localhost:3000/api/admin/count/user');
   }
 
-  getTeamsCount(): Number {
-    return 0;
+  getTeamsCount() {
+    return this.http.get<any>('http://localhost:3000/api/admin/count/team');
+  }
+
+  getInvestedCount() {
+    return this.http.get<any>('http://localhost:3000/api/admin/count/invested');
   }
 
   getLeaderboard() {
@@ -39,6 +43,14 @@ export class AdminService {
 
   deleteStoryline(id: string) {
     return this.http.delete<any>('http://localhost:3000/api/admin/storyline/' + id);
+  }
+
+  setCurrentStoryline(_id: string) {
+    return this.http.put<any>('http://localhost:3000/api/admin/storyline/change', {id: _id});
+  }
+
+  getCurrentStoryline() {
+    return this.http.get<any>('http://localhost:3000/api/admin/storyline/current');
   }
 
 }

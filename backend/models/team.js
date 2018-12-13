@@ -32,6 +32,10 @@ const teamSchema = mongoose.Schema({
     military: {
       type: Number
     }
+  },
+  invested: {
+    type: Boolean,
+    default: false
   }
 })
 

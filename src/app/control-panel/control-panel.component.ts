@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-control-panel',
@@ -7,9 +8,56 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ControlPanelComponent implements OnInit {
 
-  constructor() { }
+  usersCount: Number;
+  teamsCount: Number;
+  investedCount: Number;
+
+  constructor(public adminService: AdminService) { }
 
   ngOnInit() {
+    this.updateUsersCount();
+    this.updateTeamsCount();
+    this.updateInvestedCount();
   }
+
+  updateUsersCount() {
+    this.adminService.getUsersCount().subscribe(response => {
+     if (response.status === 200) {
+       this.usersCount = response.count;
+     }
+   });
+ }
+
+ updateTeamsCount() {
+  this.adminService.getTeamsCount().subscribe(response => {
+   if (response.status === 200) {
+     this.teamsCount = response.count;
+   }
+ });
+}
+
+updateInvestedCount() {
+  this.adminService.getInvestedCount().subscribe(response => {
+   if (response.status === 200) {
+     this.investedCount = response.count;
+   }
+ });
+}
+
+ deleteAllUsers() {
+   this.adminService.deleteAllUsers().subscribe(response => {
+     if (response.status === 201) {
+       this.updateUsersCount();
+     }
+   });
+ }
+
+ deleteAllTeams() {
+  this.adminService.deleteAllTeams().subscribe(response => {
+    if (response.status === 201) {
+      this.updateTeamsCount();
+    }
+  });
+}
 
 }
