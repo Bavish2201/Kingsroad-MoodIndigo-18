@@ -29,25 +29,38 @@ export class UserService {
 
   createTeam(teamname: string, username1: string, username2: string,
     username3: string, username4: string) {
-      return this.http.post<any>('http://localhost:3000/api/register/team', {
-        teamname: teamname,
-        username1: username1,
-        username2: username2,
-        username3: username3,
-        username4: username4
-      });
-    }
+    return this.http.post<any>('http://localhost:3000/api/register/team', {
+      teamname: teamname,
+      username1: username1,
+      username2: username2,
+      username3: username3,
+      username4: username4
+    });
+  }
 
-    getCurrentTeam(teamid: string) {
-      return this.http.post<any>('http://localhost:3000/api/team', {teamid: teamid});
-    }
+  getUser(username: string) {
+    return this.http.get<any>('http://localhost:3000/api/team/user/' + username);
+  }
 
-    update_gold(teamid: string, gold: number) {
-      return this.http.post<any>('http://localhost:3000/api/team/update_gold', {
+  getCurrentTeam(teamid: string) {
+    return this.http.post<any>('http://localhost:3000/api/team', {teamid: teamid});
+  }
+
+  update_gold(teamid: string, gold: number) {
+    return this.http.post<any>('http://localhost:3000/api/team/update_gold', {
+      teamid: teamid,
+      gold: gold
+    });
+  }
+
+  invest(teamid: string, gold: number, military: number, food: number, research: number) {
+    return this.http.post<any>('http://localhost:3000/api/team/invest', {
         teamid: teamid,
-        gold: gold
-      });
-    }
+        gold: gold,
+        military: military,
+        food: food
+    });
+  }
 
 }
 

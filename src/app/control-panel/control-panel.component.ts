@@ -45,19 +45,23 @@ updateInvestedCount() {
 }
 
  deleteAllUsers() {
-   this.adminService.deleteAllUsers().subscribe(response => {
-     if (response.status === 201) {
-       this.updateUsersCount();
-     }
-   });
+  if (confirm('Delete all users?')) {
+    this.adminService.deleteAllUsers().subscribe(response => {
+      if (response.status === 201) {
+        this.updateUsersCount();
+      }
+    });
+  }
  }
 
  deleteAllTeams() {
-  this.adminService.deleteAllTeams().subscribe(response => {
-    if (response.status === 201) {
-      this.updateTeamsCount();
-    }
-  });
-}
+  if (confirm('Delete all teams?')) {
+    this.adminService.deleteAllTeams().subscribe(response => {
+      if (response.status === 201) {
+        this.updateTeamsCount();
+      }
+    });
+  }
+ }
 
 }

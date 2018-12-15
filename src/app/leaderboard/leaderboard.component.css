@@ -27,3 +27,13 @@ mat-toolbar {
 button {
   border-radius: 20px;
 }
+
+table {
+  width: 100%
+}
+
+table, th, td {
+  border: 1px solid rgb(141, 141, 141);
+  border-collapse: collapse;
+  padding: 5px;
+}

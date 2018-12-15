@@ -6,6 +6,7 @@
 
 
 <div class="container">
+  <!--
   <mat-list>
     <mat-list-item *ngFor="let team of teams; let i = index">
       {{i+1}}) <div class="teamname"> {{team.teamname}} </div>
@@ -14,4 +15,17 @@
       </div>
     </mat-list-item>
   </mat-list>
+  -->
+  <table>
+    <tr>
+      <th>Rank</th> <th>Team Name</th> <th>Gold</th> <th>Food</th> <th>Military</th>
+    </tr>
+    <tr *ngFor="let team of teams; let i = index">
+      <td>{{i+1}}</td>
+      <td> {{team.teamname}} </td>
+      <td> {{team.gold}} </td>
+      <td> {{team.food}} </td>
+      <td> {{team.military}} </td>
+    </tr>
+  </table>
 </div>

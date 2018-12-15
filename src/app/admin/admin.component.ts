@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class AdminComponent implements OnInit {
 
+  component = 'home';
+
   username: string;
   password: string;
   loggedIn  = false;
@@ -20,6 +22,7 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
     if (sessionStorage.getItem('adminLoggedIn') === 'true') {
       this.loggedIn = true;
+      this.component = 'home';
     }
     this.refreshStoryline();
   }
@@ -38,14 +41,12 @@ export class AdminComponent implements OnInit {
     sessionStorage.removeItem('adminLoggedIn');
   }
 
-  showStorylines() {
-    this.router.navigate(['admin-storyline']);
-  }
-
   refreshStoryline() {
     this.adminService.getCurrentStoryline().subscribe(response => {
       if (response.status === 200) {
         this.currentStoryline = response.storyline.question;
+      } else {
+        this.currentStoryline = 'No current storyline found!';
       }
     });
   }

@@ -6,10 +6,10 @@ const storySchema = mongoose.Schema({
     type: Boolean,
     default: false
   },
-  military_return_ratio: Number,
-  food_return_ratio: Number,
-  research_return_ratio: Number,
-  other_return_ratio: Number
+  military_rate: Number,
+  food_rate: Number,
+  research_rate: Number,
+  gold_rate: Number
 })
 
 module.exports = mongoose.model('Storyline', storySchema);

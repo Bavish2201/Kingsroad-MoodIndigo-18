@@ -64,15 +64,17 @@ router.post('/team', (req, res, err) => {
       return;
     }
   });
-  User.findOne({username: req.body.username4}).then(data => {
-    if (!data) {
-      res.json({
-        status: 401,
-        message: req.body.username4 + " doesn't exist. Please register first"
-      });
-      return;
-    }
-  });
+  if (req.body.username4) {
+    User.findOne({username: req.body.username4}).then(data => {
+      if (!data) {
+        res.json({
+          status: 401,
+          message: req.body.username4 + " doesn't exist. Please register first"
+        });
+        return;
+      }
+    });
+  }
   const team = new Team({
     teamname: req.body.teamname,
     user1: req.body.username1,

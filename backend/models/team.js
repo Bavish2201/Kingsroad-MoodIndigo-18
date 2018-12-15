@@ -25,13 +25,17 @@ const teamSchema = mongoose.Schema({
     type: Number,
     default: 100
   },
-  resources: {
-    food: {
-      type: Number
-    },
-    military: {
-      type: Number
-    }
+  food: {
+    type: Number,
+    default: 0
+  },
+  military: {
+    type: Number,
+    default: 0
+  },
+  research: {
+    type: Number,
+    default: 0
   },
   invested: {
     type: Boolean,

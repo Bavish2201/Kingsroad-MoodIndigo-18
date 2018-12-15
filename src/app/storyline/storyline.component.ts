@@ -14,7 +14,7 @@ export class StorylineComponent implements OnInit {
   food_ratio: number;
   military_ratio: number;
   research_ratio: number;
-  other_ratio: number;
+  gold_ratio: number;
 
   storylines = [];
 
@@ -33,7 +33,7 @@ export class StorylineComponent implements OnInit {
       food: this.food_ratio,
       military: this.military_ratio,
       research: this.research_ratio,
-      others: this.other_ratio
+      gold: this.gold_ratio
     };
     this.adminService.addStoryline(story).subscribe(res => {
       if (res.status === 401) {
@@ -43,7 +43,7 @@ export class StorylineComponent implements OnInit {
         this.food_ratio = 0;
         this.military_ratio = 0;
         this.research_ratio = 0;
-        this.other_ratio = 0;
+        this.gold_ratio = 0;
         this.getStorylines();
       }
     });

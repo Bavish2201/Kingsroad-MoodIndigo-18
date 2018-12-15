@@ -31,7 +31,15 @@
     <span class="example-fill-remaining-space"></span>
 
     <span>
-      <button mat-button (click)="showStorylines()">Storyline</button>
+      <button mat-button (click)="component = 'home'">Home</button>
+    </span>
+
+    <span>
+      <button mat-button (click)="component = 'storyline'">Storyline</button>
+    </span>
+
+    <span>
+      <button mat-button (click)="component = 'leaderboard'">Leaderboard</button>
     </span>
 
     <span>
@@ -39,20 +47,23 @@
     </span>
   </mat-toolbar>
 
-  <mat-card class="card .mat-elevation-z0">
+  <mat-card *ngIf="component === 'leaderboard'" class="card .mat-elevation-z0">
     <app-leaderboard></app-leaderboard>
   </mat-card>
 
-  <mat-card class="card .mat-elevation-z0">
+  <mat-card *ngIf="component === 'home'" class="card .mat-elevation-z0">
     <mat-card-title>Current Storyline</mat-card-title>
     {{currentStoryline}}
     <br><br>
     <button mat-stroked-button color="primary" (click)="showStorylines()" >Change Storyline</button>
   </mat-card>
 
-  <mat-card class="card .mat-elevation-z0">
+  <mat-card *ngIf="component ==='home'" class="card .mat-elevation-z0">
     <app-control-panel></app-control-panel>
   </mat-card>
 
+  <mat-card *ngIf="component ==='storyline'" class="card .mat-elevation-z0">
+    <app-storyline></app-storyline>
+  </mat-card>
 </div>
 

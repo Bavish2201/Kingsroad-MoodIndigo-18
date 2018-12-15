@@ -19,10 +19,10 @@ router.get('/leaderboard', (req, res, err) => {
 router.post('/storyline', (req, res, err) => {
   const story = new Storyline({
     question: req.body.question,
-    military_return_ratio: req.body.military,
-    food_return_ratio: req.body.food,
-    research_return_ratio: req.body.research,
-    other_return_ratio: req.body.others
+    military_rate: req.body.military,
+    food_rate: req.body.food,
+    research_rate: req.body.research,
+    gold_rate: req.body.gold
   });
   story.save().then(savedStory => {
     res.json({
@@ -85,6 +85,10 @@ router.get('/storyline/current', (req, res, next) => {
         status: 200,
         storyline: obj
       })
+    } else {
+      res.json({
+        status: 401
+      })
     }
   })
 })
@@ -106,7 +110,7 @@ router.delete('/users/delete-all', (req, res, err) => {
 });
 
 router.delete('/teams/delete-all', (req, res, err) => {
-  Team.deleteMany({}, (req, res, err) => {
+  Team.deleteMany({}, err => {
     if (err) {
       res.json({
         status: 401,
