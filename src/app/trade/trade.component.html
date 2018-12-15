@@ -1,9 +1,6 @@
-<mat-toolbar class="header">
-    <span>Trade</span>
-    <span class="fill"></span>
-</mat-toolbar>
+<mat-card class="container">
+  <mat-card-title>Trade</mat-card-title>
 
-<div class="container">
   <mat-form-field appearance="outline">
     <mat-label>From Teamname</mat-label>
     <input matInput type="text" [(ngModel)]="from"/>
@@ -19,6 +16,11 @@
   <br>
 
   <mat-form-field appearance="outline">
+    <mat-label>Gold</mat-label>
+    <input matInput type="number" min="0" [(ngModel)]="gold"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
     <mat-label>Food</mat-label>
     <input matInput type="number" min="0" [(ngModel)]="food"/>
   </mat-form-field>
@@ -30,5 +32,5 @@
 
   <br>
 
-  <button mat-raised-button color="primary">Trade</button>
-</div>
+  <button mat-raised-button color="primary" (click)="trade()">Trade</button>
+</mat-card>

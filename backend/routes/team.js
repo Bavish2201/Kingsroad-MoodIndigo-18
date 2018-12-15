@@ -73,4 +73,61 @@ router.post('/invest', (req, res, next) => {
   })
 })
 
+// trade
+router.post('/trade', (req, __response, next) => {
+  let status = 200;
+  let message = 'success';
+  Team.findOne({teamname: req.body.from_teamname}, (err, res) => {
+    if (!res) {
+      status = 404;
+      message = req.body.from_teamname + ' does not exist';
+    } else if (res.gold < req.body.gold) {
+      status = 401;
+      message = 'Not enough gold to trade';
+    } else if (res.military < req.body.military) {
+      status = 401;
+      message = 'Not enough military to trade';
+    } else if (res.food < req.body.food) {
+      status = 401,
+      message = 'Not enough food to trade';
+    }
+    if (status !== 200) {
+      __response.json({
+        status: status,
+        message: message
+      })
+    } else {
+
+      Team.findOne({teamname: req.body.to_teamname}, (err, res) => {
+        if (!res) {
+          status = 404;
+          message = req.body.to_teamname + ' does not exist';
+        }
+
+          console.log('here');
+          Team.findOneAndUpdate({teamname: req.body.to_teamname}, {$inc:{
+            gold: req.body.gold,
+            military: req.body.military,
+            food: req.body.food
+          }}, (err, doc, r) => {
+
+            Team.findOneAndUpdate({teamname: req.body.from_teamname}, {$inc: {
+              gold: -1 * req.body.gold,
+              military: -1 * req.body.military,
+              food: -1 * req.body.food
+            }}, (_err, _doc, _res) => {
+
+              __response.json({
+                status: status,
+                message: message
+              });
+
+            });
+          });
+
+      });
+    }
+  });
+});
+
 module.exports = router;

@@ -12,12 +12,25 @@ export class ControlPanelComponent implements OnInit {
   teamsCount: Number;
   investedCount: Number;
 
+  currentStoryline: string;
+
   constructor(public adminService: AdminService) { }
 
   ngOnInit() {
+    this.refreshStoryline();
     this.updateUsersCount();
     this.updateTeamsCount();
     this.updateInvestedCount();
+  }
+
+  refreshStoryline() {
+    this.adminService.getCurrentStoryline().subscribe(response => {
+      if (response.status === 200) {
+        this.currentStoryline = response.storyline.question;
+      } else {
+        this.currentStoryline = 'No current storyline found!';
+      }
+    });
   }
 
   updateUsersCount() {
@@ -62,6 +75,17 @@ updateInvestedCount() {
       }
     });
   }
+ }
+
+ deleteTeam() {
+   const teamname = prompt('Teamname');
+   this.adminService.deleteTeam(teamname).subscribe(res => {
+     if (res.status === 200) {
+       alert('Successfully deleted team ' + teamname);
+     } else {
+       alert('Some error occured. Please enter the correct teamname');
+     }
+   });
  }
 
 }

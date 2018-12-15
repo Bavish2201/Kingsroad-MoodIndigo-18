@@ -53,7 +53,7 @@ export class UserService {
     });
   }
 
-  invest(teamid: string, gold: number, military: number, food: number, research: number) {
+  invest(teamid: string, gold: number, military: number, food: number) {
     return this.http.post<any>('http://localhost:3000/api/team/invest', {
         teamid: teamid,
         gold: gold,

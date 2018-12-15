@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-import { User } from './user.model';
-
 @Injectable({providedIn: 'root'})
 export class AdminService {
 
@@ -33,6 +31,10 @@ export class AdminService {
     return this.http.delete<any>('http://localhost:3000/api/admin/teams/delete-all');
   }
 
+  deleteTeam(teamname: string) {
+    return this.http.post<any>('http://localhost:3000/api/admin/team/delete', {teamname: teamname});
+  }
+
   addStoryline(postData) {
     return this.http.post<any>('http://localhost:3000/api/admin/storyline', postData);
   }
@@ -51,6 +53,16 @@ export class AdminService {
 
   getCurrentStoryline() {
     return this.http.get<any>('http://localhost:3000/api/admin/storyline/current');
+  }
+
+  trade(from_teamname: string, to_teamname: string, gold: number, food: number, military: number) {
+    return this.http.post<any>('http://localhost:3000/api/team/trade', {
+      from_teamname: from_teamname,
+      to_teamname: to_teamname,
+      gold: gold,
+      military: military,
+      food: food
+    });
   }
 
 }

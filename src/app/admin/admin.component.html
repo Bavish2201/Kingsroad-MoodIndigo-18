@@ -39,6 +39,10 @@
     </span>
 
     <span>
+      <button mat-button (click)="component = 'trade'">Trade</button>
+    </span>
+
+    <span>
       <button mat-button (click)="component = 'leaderboard'">Leaderboard</button>
     </span>
 
@@ -51,19 +55,17 @@
     <app-leaderboard></app-leaderboard>
   </mat-card>
 
-  <mat-card *ngIf="component === 'home'" class="card .mat-elevation-z0">
-    <mat-card-title>Current Storyline</mat-card-title>
-    {{currentStoryline}}
-    <br><br>
-    <button mat-stroked-button color="primary" (click)="showStorylines()" >Change Storyline</button>
-  </mat-card>
-
   <mat-card *ngIf="component ==='home'" class="card .mat-elevation-z0">
     <app-control-panel></app-control-panel>
+    <button mat-stroked-button color="primary" (click)="component = 'storyline'" >Change Storyline</button>
   </mat-card>
 
   <mat-card *ngIf="component ==='storyline'" class="card .mat-elevation-z0">
     <app-storyline></app-storyline>
+  </mat-card>
+
+  <mat-card *ngIf="component ==='trade'" class="card .mat-elevation-z0">
+    <app-trade></app-trade>
   </mat-card>
 </div>
 

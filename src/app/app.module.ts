@@ -14,7 +14,8 @@ import { MatInputModule,
   MatProgressSpinnerModule,
   MatDividerModule,
   MatMenuModule,
-  MatListModule } from '@angular/material';
+  MatListModule,
+  MatSelectModule} from '@angular/material';
 
 
 import { AppComponent } from './app.component';
@@ -63,7 +64,8 @@ import { TeamStorylineComponent } from './team-storyline/team-storyline.componen
     MatProgressSpinnerModule,
     MatDividerModule,
     MatMenuModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

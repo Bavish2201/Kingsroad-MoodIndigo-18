@@ -21,7 +21,7 @@ export class LeaderboardComponent implements OnInit {
       console.log(response);
       this.teams = response.leaderboard;
       this.teams.sort((a, b) => {
-        return b.gold - a.gold;
+        return (b.gold + b.food + b.military) - (a.gold + a.food + a.military);
       });
     });
   }

@@ -65,8 +65,8 @@ router.delete('/storyline/:id', (req, res, next) => {
 })
 
 router.put('/storyline/change', (req, res, next) => {
-  Storyline.findOne({current: true}).then(currStoryline => {
-    if (currStoryline) {
+  Storyline.findOne({current: true}, (err, currStoryline) => {
+    if (!err) {
       Storyline.findOneAndUpdate({current: true}, {$set: {current: false}}, (err, doc, r) => {});
     }
     Storyline.findOneAndUpdate({_id: req.body.id}, {$set: {current: true}}, (err, doc, r) => {});
@@ -155,6 +155,22 @@ router.get('/count/team', (req, res, err) => {
       })
     }
   })
+});
+
+
+// delete a team
+router.post('/team/delete', (req, res, next) => {
+  Team.findOneAndDelete({teamname: req.body.teamname}, (err, r) => {
+    if (r) {
+      res.json({
+        status: 200
+      });
+    } else {
+      res.json({
+        status: 401
+      });
+    }
+  });
 });
 
 // get invested count

@@ -18,14 +18,14 @@
   -->
   <table>
     <tr>
-      <th>Rank</th> <th>Team Name</th> <th>Gold</th> <th>Food</th> <th>Military</th>
+      <th>Rank</th> <th>Team Name</th> <th>xp</th>
     </tr>
     <tr *ngFor="let team of teams; let i = index">
       <td>{{i+1}}</td>
       <td> {{team.teamname}} </td>
-      <td> {{team.gold}} </td>
-      <td> {{team.food}} </td>
-      <td> {{team.military}} </td>
+      <td> {{  team.gold
+             + team.food
+             + team.military }} </td>
     </tr>
   </table>
 </div>

@@ -4,4 +4,11 @@
   <p>Total number of teams invested: {{investedCount}}</p>
   <button mat-stroked-button color="warn" (click)="deleteAllUsers()">Delete All Users</button>
   <button mat-stroked-button color="warn" (click)="deleteAllTeams()">Delete All Teams</button>
+  <button mat-stroked-button color="warn" (click)="deleteTeam()">Delete A Team</button>
 </div>
+
+<mat-card class="card .mat-elevation-z0">
+  <mat-card-title>Current Storyline</mat-card-title>
+  {{currentStoryline}}
+  <br><br>
+</mat-card>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-trade',
@@ -11,10 +12,21 @@ export class TradeComponent implements OnInit {
   to: string;
   food: number;
   military: number;
+  gold: number;
 
-  constructor() { }
+  constructor(public adminService: AdminService) { }
 
   ngOnInit() {
+  }
+
+  trade() {
+    this.adminService.trade(this.from, this.to, this.gold, this.food, this.military).subscribe(res => {
+      if (res.status === 200) {
+        alert('Trade successfull');
+      } else {
+        alert(res.message);
+      }
+    });
   }
 
 }

@@ -14,6 +14,7 @@ export class InvestComponent implements OnInit {
   gold: number;
   military: number;
   food: number;
+  research = 'none';
 
   military_invest: number;
   food_invest: number;
@@ -40,11 +41,22 @@ export class InvestComponent implements OnInit {
         this.adminService.getCurrentStoryline().subscribe(res => {
 
           this.gold += this.gold * res.storyline.gold_rate / 100;
-          this.gold += this.military * res.storyline.military_rate / 100;
-          this.gold += this.food * res.storyline.food_rate / 100;
+
+          if (this.research === 'military') {
+            this.gold += this.military * (res.storyline.military_rate + res.storyline.research_rate) / 100;
+          } else {
+            this.gold += this.military * res.storyline.military_rate / 100;
+          }
+
+          if (this.research === 'food') {
+            this.gold += this.food * (res.storyline.food_rate + res.storyline.research_rate) / 100;
+          } else {
+            this.gold += this.food * res.storyline.food_rate / 100;
+          }
+
           this.gold = Math.floor(this.gold);
 
-          this.userService.invest(this.teamid, this.gold, this.military, this.food, 0).subscribe(response => {
+          this.userService.invest(this.teamid, this.gold, this.military, this.food).subscribe(response => {
             if (response.status === 200) {
               this.invested = true;
               this.display_message = 'You have successfully invested.';

@@ -15,8 +15,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'create-team', component: TeamCreateComponent},
-  {path: 'admin', component: AdminComponent},
-  {path: 'admin-storyline', component: StorylineComponent}
+  {path: 'admin', component: AdminComponent}
 ];
 
 @NgModule({
