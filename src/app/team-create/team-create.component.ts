@@ -42,19 +42,30 @@ export class TeamCreateComponent implements OnInit {
   }
 
   onCreateTeam() {
-    this.userService.createTeam(this.teamname, this.username, this.username2,
-      this.username3, this.username4).subscribe(resData => {
-        if (resData.status === 200) {
-          this.showError = false;
-          sessionStorage.setItem('teamid', resData.teamid);
-          sessionStorage.setItem('currentUser', resData._id);
-          sessionStorage.setItem('username', resData.username);
-          this.router.navigate(['dashboard']);
-        } else {
-          this.showError = true;
-          this.errorText = resData.message;
-        }
-      });
+    if (this.teamname === undefined) {
+      this.showError = true;
+      this.errorText = 'Teamname cannot be blank';
+    } else if (this.username2 === undefined) {
+      this.showError = true;
+      this.errorText = 'Team Member 2 cannot be blank';
+    } else if (this.username3 === undefined) {
+      this.showError = true;
+      this.errorText = 'Team member 3 cannot be blank';
+    } else {
+      this.userService.createTeam(this.teamname, this.username, this.username2,
+        this.username3, this.username4).subscribe(resData => {
+          if (resData.status === 200) {
+            this.showError = false;
+            sessionStorage.setItem('teamid', resData.teamid);
+            sessionStorage.setItem('currentUser', resData._id);
+            sessionStorage.setItem('username', resData.username);
+            this.router.navigate(['dashboard']);
+          } else {
+            this.showError = true;
+            this.errorText = resData.message;
+          }
+        });
+      }
   }
 
   onLogout() {

@@ -8,6 +8,11 @@
   max-width: 500px;
 }
 
+.control-button {
+  margin: 3px;
+  border-radius: 20px;
+}
+
 input[type="number"] {
   max-width: 200px;
   width: 80%;

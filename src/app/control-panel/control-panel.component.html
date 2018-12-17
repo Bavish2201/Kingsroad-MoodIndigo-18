@@ -2,6 +2,15 @@
   <p>Total number of registerd users: {{usersCount}} </p>
   <p>Total number of registerd teams: {{teamsCount}}</p>
   <p>Total number of teams invested: {{investedCount}}</p>
+
+  <button mat-stroked-button color="primary" (click)="getTeam()">Get Team Details</button>
+  <div *ngIf="showTeamDetails">
+    <p>Teamname: {{team.teamname}}</p>
+    <p>Gold: {{team.gold}}, Military: {{team.military}}, food: {{team.food}}</p>
+    <p>Team Members: {{team.user1}}, {{team.user2}}, {{team.user3}}, {{team.user4}}</p>
+    <button mat-stroked-button (click)="showTeamDetails = false">Close</button>
+  </div>
+  <br><br>
   <button mat-stroked-button color="warn" (click)="deleteAllUsers()">Delete All Users</button>
   <button mat-stroked-button color="warn" (click)="deleteAllTeams()">Delete All Teams</button>
   <button mat-stroked-button color="warn" (click)="deleteTeam()">Delete A Team</button>

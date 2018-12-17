@@ -30,6 +30,10 @@
 
     <br>
 
+    <div *ngIf="showError" class="error-message">
+      {{error_message}}
+    </div>
+
     <mat-card-actions>
       <button mat-raised-button color="primary" (click)="invest()">Invest</button>
     </mat-card-actions>

@@ -35,6 +35,10 @@ export class AdminService {
     return this.http.post<any>('http://localhost:3000/api/admin/team/delete', {teamname: teamname});
   }
 
+  getTeam(teamname: string) {
+    return this.http.post<any>('http://localhost:3000/api/admin/team/details', {teamname: teamname});
+  }
+
   addStoryline(postData) {
     return this.http.post<any>('http://localhost:3000/api/admin/storyline', postData);
   }

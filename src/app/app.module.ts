@@ -31,6 +31,7 @@ import { ControlPanelComponent } from './control-panel/control-panel.component';
 import { StorylineComponent } from './storyline/storyline.component';
 import { InvestComponent } from './invest/invest.component';
 import { TeamStorylineComponent } from './team-storyline/team-storyline.component';
+import { TeamHomeComponent } from './team-home/team-home.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { TeamStorylineComponent } from './team-storyline/team-storyline.componen
     ControlPanelComponent,
     StorylineComponent,
     InvestComponent,
-    TeamStorylineComponent
+    TeamStorylineComponent,
+    TeamHomeComponent
   ],
   imports: [
     BrowserModule,

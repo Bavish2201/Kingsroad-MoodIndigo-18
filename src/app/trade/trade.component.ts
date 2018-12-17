@@ -20,6 +20,15 @@ export class TradeComponent implements OnInit {
   }
 
   trade() {
+    if (this.food === undefined) {
+      this.food = 0;
+    }
+    if (this.military === undefined) {
+      this.military = 0;
+    }
+    if (this.gold === undefined) {
+      this.gold = 0;
+    }
     this.adminService.trade(this.from, this.to, this.gold, this.food, this.military).subscribe(res => {
       if (res.status === 200) {
         alert('Trade successfull');

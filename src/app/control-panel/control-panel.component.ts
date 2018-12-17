@@ -14,6 +14,9 @@ export class ControlPanelComponent implements OnInit {
 
   currentStoryline: string;
 
+  showTeamDetails = false;
+  team = null;
+
   constructor(public adminService: AdminService) { }
 
   ngOnInit() {
@@ -57,6 +60,20 @@ updateInvestedCount() {
  });
 }
 
+getTeam() {
+  const teamname = prompt('Enter teamname');
+  if (teamname) {
+    this.adminService.getTeam(teamname).subscribe(res => {
+      if (res.status === 200) {
+        this.team = res.team;
+        this.showTeamDetails = true;
+      } else {
+        alert('Something went wrong. Make sure you entered the correct teamname.');
+      }
+    });
+  }
+}
+
  deleteAllUsers() {
   if (confirm('Delete all users?')) {
     this.adminService.deleteAllUsers().subscribe(response => {
@@ -79,13 +96,15 @@ updateInvestedCount() {
 
  deleteTeam() {
    const teamname = prompt('Teamname');
-   this.adminService.deleteTeam(teamname).subscribe(res => {
-     if (res.status === 200) {
-       alert('Successfully deleted team ' + teamname);
-     } else {
-       alert('Some error occured. Please enter the correct teamname');
-     }
-   });
+   if (teamname) {
+    this.adminService.deleteTeam(teamname).subscribe(res => {
+      if (res.status === 200) {
+        alert('Successfully deleted team ' + teamname);
+      } else {
+        alert('Some error occured. Please enter the correct teamname');
+      }
+    });
+  }
  }
 
 }

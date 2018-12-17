@@ -7,6 +7,7 @@
   <span class="small-screen">
     <button mat-button [matMenuTriggerFor]="menu">Menu</button>
     <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="control = 'home'">Home</button>
       <button mat-menu-item (click)="control = 'invest'">Invest</button>
       <button mat-menu-item (click)="control = 'storyline'">Storyline</button>
       <button mat-menu-item (click)="control = 'leaderboard'">Leaderboard</button>
@@ -14,12 +15,20 @@
     </mat-menu>
   </span>
   <span class="wide-screen">
+    <button mat-button (click)="control = 'home'">Home</button>
     <button mat-button (click)="control = 'invest'">Invest</button>
     <button mat-button (click)="control = 'storyline'">Storyline</button>
     <button mat-button (click)="control = 'leaderboard'">Leaderboard</button>
     <button mat-button (click)="logout()">Logout</button>
   </span>
 </mat-toolbar>
+
+<div class="container" *ngIf="control === 'home'">
+  <app-team-home></app-team-home>
+  <button mat-stroked-button class="control-button" color="primary" (click)="control = 'invest'">Invest</button>
+  <button mat-stroked-button class="control-button" color="primary" (click)="control = 'storyline'">Storyline</button>
+  <button mat-stroked-button class="control-button" color="primary" (click)="control = 'leaderboard'">Leaderboard</button>
+</div>
 
 <div class="container" *ngIf="control === 'invest'">
   <app-invest></app-invest>

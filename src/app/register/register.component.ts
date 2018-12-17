@@ -23,6 +23,10 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegister() {
+    if (this.username === undefined || this.email === undefined || this.password === undefined) {
+      this.errorText = 'Please fill out all the fields';
+      this.showError = true;
+    }
     this.userService.registerUser(this.username, this.email, this.password)
     .subscribe(resData => {
       if (resData.status === 200) {

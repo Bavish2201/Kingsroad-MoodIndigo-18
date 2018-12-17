@@ -21,6 +21,9 @@ export class InvestComponent implements OnInit {
 
   display_message = 'Your team has already invested.';
 
+  showError = false;
+  error_message = '';
+
   constructor(public userService: UserService, public adminService: AdminService) { }
 
   ngOnInit() {
@@ -31,6 +34,17 @@ export class InvestComponent implements OnInit {
   }
 
   invest() {
+    if (this.military_invest === undefined) {
+      this.military_invest = 0;
+    }
+    if (this.food_invest === undefined) {
+      this.food_invest = 0;
+    }
+    if (this.gold < this.food_invest + this.military_invest) {
+      this.error_message = 'You do not have enough gold';
+      this.showError = true;
+      return;
+    }
     this.refreshTeamDetails().then((result) => {
       if (result === false) {
 

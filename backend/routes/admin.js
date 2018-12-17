@@ -157,6 +157,22 @@ router.get('/count/team', (req, res, err) => {
   })
 });
 
+// get team details
+router.post('/team/details', (req, res, next) => {
+  Team.findOne({teamname: req.body.teamname}, (err, obj) => {
+    if (!err) {
+      res.json({
+        status: 200,
+        team: obj
+      });
+    } else {
+      res.json({
+        status: 401
+      });
+    }
+  });
+});
+
 
 // delete a team
 router.post('/team/delete', (req, res, next) => {

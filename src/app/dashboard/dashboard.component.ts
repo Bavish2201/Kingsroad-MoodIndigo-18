@@ -10,12 +10,15 @@ export class DashboardComponent implements OnInit {
 
   username: string;
   points: number;
-  control = 'invest';
+  control = 'home';
 
   constructor(public router: Router) { }
 
   ngOnInit() {
     this.username = sessionStorage.getItem('username');
+    if (!this.username) {
+      this.router.navigate(['']);
+    }
   }
 
   logout() {
