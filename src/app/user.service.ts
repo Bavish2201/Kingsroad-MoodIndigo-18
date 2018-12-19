@@ -10,10 +10,9 @@ export class UserService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  registerUser(username: string, email: string, password: string) {
+  registerUser(mi_number: string, password: string) {
     const userData = {
-      username: username,
-      email: email,
+      username: mi_number,
       password: password
     };
     return this.http.post<any>('http://localhost:3000/api/register', userData);

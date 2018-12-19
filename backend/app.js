@@ -12,7 +12,7 @@ const app = express();
 
 // Password: jzTOCSBHIPKfTgF7
 
-mongoose.connect('mongodb+srv://bavish:jzTOCSBHIPKfTgF7@cluster0-oxfkj.mongodb.net/test?retryWrites=true')
+mongoose.connect('mongodb+srv://bavish:jzTOCSBHIPKfTgF7@cluster0-oxfkj.mongodb.net/test?retryWrites=true', { useNewUrlParser: true })
   .then(() => {
     console.log('Connected to database');
   })
