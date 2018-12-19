@@ -15,8 +15,6 @@ export class AdminComponent implements OnInit {
   password: string;
   loggedIn  = false;
 
-  currentStoryline: string;
-
   constructor(public adminService: AdminService, public router: Router) { }
 
   ngOnInit() {
@@ -24,7 +22,6 @@ export class AdminComponent implements OnInit {
       this.loggedIn = true;
       this.component = 'home';
     }
-    this.refreshStoryline();
   }
 
   onLogin() {
@@ -41,13 +38,4 @@ export class AdminComponent implements OnInit {
     sessionStorage.removeItem('adminLoggedIn');
   }
 
-  refreshStoryline() {
-    this.adminService.getCurrentStoryline().subscribe(response => {
-      if (response.status === 200) {
-        this.currentStoryline = response.storyline.question;
-      } else {
-        this.currentStoryline = 'No current storyline found!';
-      }
-    });
-  }
 }

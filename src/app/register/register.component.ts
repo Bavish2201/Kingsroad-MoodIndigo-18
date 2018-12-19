@@ -9,9 +9,9 @@ import { UserService } from '../user.service';
 })
 export class RegisterComponent implements OnInit {
 
-  username: string;
+  mi_number: string;
   password: string;
-  email: string;
+  con_password: string;
   showError = false;
   errorText = '';
 
@@ -23,22 +23,26 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegister() {
-    if (this.username === undefined || this.email === undefined || this.password === undefined) {
+    if (this.mi_number === undefined || this.password === undefined) {
       this.errorText = 'Please fill out all the fields';
       this.showError = true;
+    } else if (this.password !== this.con_password) {
+      this.errorText = 'Password did not match';
+      this.showError = true;
+    } else  {
+      this.userService.registerUser(this.mi_number, this.password)
+      .subscribe(resData => {
+        if (resData.status === 200) {
+          this.showError = false;
+          sessionStorage.setItem('currentUser', resData.user_id);
+          sessionStorage.setItem('username', resData.username);
+          this.router.navigate(['create-team']);
+        } else {
+          this.showError = true;
+          this.errorText = 'User already exists';
+        }
+      });
     }
-    this.userService.registerUser(this.username, this.email, this.password)
-    .subscribe(resData => {
-      if (resData.status === 200) {
-        this.showError = false;
-        sessionStorage.setItem('currentUser', resData.user_id);
-        sessionStorage.setItem('username', resData.username);
-        this.router.navigate(['create-team']);
-      } else {
-        this.showError = true;
-        this.errorText = 'Username already exists';
-      }
-    });
   }
 
 }
