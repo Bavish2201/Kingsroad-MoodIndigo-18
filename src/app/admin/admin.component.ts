@@ -29,7 +29,7 @@ export class AdminComponent implements OnInit {
       this.loggedIn = true;
       sessionStorage.setItem('adminLoggedIn', 'true');
     } else {
-      alert('Invalid MI Number or password');
+      alert('Invalid username or password');
     }
   }
 
