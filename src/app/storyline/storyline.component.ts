@@ -28,6 +28,18 @@ export class StorylineComponent implements OnInit {
   }
 
   saveStoryline() {
+    if (this.food_ratio === undefined) {
+     this.food_ratio = 0;
+    }
+    if (this.military_ratio === undefined) {
+      this.military_ratio = 0;
+    }
+    if (this.research_ratio === undefined) {
+      this.research_ratio = 0;
+    }
+    if (this.gold_ratio === undefined) {
+      this.gold_ratio = 0;
+    }
     const story = {
       question: this.question,
       food: this.food_ratio,
