@@ -4,7 +4,7 @@
 
 <mat-card class="container .mat-elevation-z0">
 
-  <h1>Welcome {{username}}</h1>
+  <h1 id="main">Welcome <span id="refresh">{{username}}</span></h1>
 
  <div *ngIf="!createTeamMode">
     <h2>You are not part of any team yet</h2>

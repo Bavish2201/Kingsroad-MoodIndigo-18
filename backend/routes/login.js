@@ -18,7 +18,7 @@ router.post('', (req, res, err) => {
     else {
       res.json({
         status: 401,
-        message: "Invalid username and password"
+        message: "Invalid MI Number and password"
       });
     }
   });

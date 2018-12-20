@@ -1,7 +1,23 @@
-<h1>
+<h1 class="teamName">
   {{team.teamname}}
 </h1>
-<h3>Resources</h3>
-<p>Gold: {{team.gold}}</p>
-<p>Military: {{team.military}}</p>
-<p>Food: {{team.food}}</p>
+<h3 id="Resources">Resources</h3>
+<table id="team">
+  <tr>
+    <th id="leftTop">Section</th>
+    <th id="rightTop">Points</th>
+  </tr>
+  <tr>
+    <td>Gold</td>
+    <td>{{team.gold}}</td>
+  </tr>
+  <tr>
+    <td>Military</td>
+    <td>{{team.military}}</td>
+  </tr>
+  <tr>
+    <td id="leftBottom">Food</td>
+    <td id="rightBottom">{{team.food}}</td>
+  </tr>
+</table>
+

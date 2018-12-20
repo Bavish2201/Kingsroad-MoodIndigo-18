@@ -6,11 +6,13 @@
 }
 
 .login-container {
-  top: 5vw;
+  top: 15vw;
   margin: auto;
   padding: 25px;
   width: 80%;
   max-width: 500px;
+  color: #3f51b5;
+  opacity: 0.95;
 }
 
 mat-card-title {

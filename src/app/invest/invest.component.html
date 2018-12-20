@@ -6,14 +6,14 @@
     <p class="points">Available Gold: {{gold}}</p>
 
     <mat-form-field appearance="outline">
-      <mat-label>Food</mat-label>
+      <mat-label id="input">Food</mat-label>
       <input matInput type="number" min="0" [(ngModel)]="food_invest"/>
     </mat-form-field>
 
     <br>
 
     <mat-form-field appearance="outline">
-      <mat-label>Milirary</mat-label>
+      <mat-label id="input">Milirary</mat-label>
       <input matInput type="number" min="0" [(ngModel)]="military_invest"/>
     </mat-form-field>
 
@@ -34,7 +34,7 @@
       {{error_message}}
     </div>
 
-    <mat-card-actions>
+    <mat-card-actions >
       <button mat-raised-button color="primary" (click)="invest()">Invest</button>
     </mat-card-actions>
 

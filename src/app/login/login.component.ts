@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
           }
         } else {
           this.showError = true;
-          this.errorText = 'Username or Password is invalid';
+          this.errorText = 'MI Number or Password is invalid';
         }
 
       });

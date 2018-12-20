@@ -21,7 +21,8 @@ mat-list {
 }
 
 mat-toolbar {
-  border-radius: 10px 10px 0px 0px;
+  border: 2px solid #7681be;
+  border-radius: 14px 14px 14px 14px;
 }
 
 button {
@@ -30,11 +31,61 @@ button {
 
 table {
   width: 100%;
-  font-family:  Arial, Helvetica, sans-serif;
 }
 
 table, th, td {
   border: 1px solid rgb(141, 141, 141);
   border-collapse: collapse;
   padding: 5px;
+}
+#main{
+  color: #3f51b5;
+  background-color: #f2f2f2;
+  text-align: center;
+}
+#refresh{
+  color: white;
+  background-color: #3f51b5;
+  text-align: center;
+  border-width: 2px solid white;
+  border-radius: 14px;
+}
+#leaderBoard{
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width:100%;
+  text-align:center;
+  margin-left: auto;
+}
+#leaderBoard th{
+  padding-top:12px;
+  padding-bottom:12px;
+  background-color:#3f51b5;
+  color:white;
+  border: 1px solid white;
+  padding: 8px;
+}
+#leaderBoard td{
+  border: 1px solid white;
+  padding: 8px;
+}
+#leaderBoard tr{
+  border: 1px solid #ddd;
+}
+#leaderBoard tr:nth-child(even){background-color: #f2f2f2;}
+#leaderBoard tr:hover{
+  background-color: #7681be;
+  color:white;
+}
+table{
+  margin:15px;
+}
+#leaderBoard tr:last-child{
+  border: 1px solid white;
+} 
+#leftTop{
+  border-top-left-radius: 20px;
+}
+#rightTop{
+  border-top-right-radius: 20px;
 }

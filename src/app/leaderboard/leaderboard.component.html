@@ -1,7 +1,7 @@
 <mat-toolbar  class="header">
-  <span>Leaderboard</span>
+  <span id="main">Leaderboard</span>
   <span class="fill"></span>
-  <span><button mat-stroked-button (click)="refreshLeaderboard()">Refresh</button></span>
+  <span id="refresh"><button mat-stroked-button (click)="refreshLeaderboard()">Refresh</button></span>
 </mat-toolbar>
 
 
@@ -16,16 +16,16 @@
     </mat-list-item>
   </mat-list>
   -->
-  <table>
+  <table id="leaderBoard">
     <tr>
-      <th>Rank</th> <th>Team Name</th> <th>xp</th>
+      <th id="leftTop">Rank</th> 
+      <th>Team Name</th> 
+      <th id="rightTop">xp</th>
     </tr>
     <tr *ngFor="let team of teams; let i = index">
       <td>{{i+1}}</td>
-      <td> {{team.teamname}} </td>
-      <td> {{  team.gold
-             + team.food
-             + team.military }} </td>
+      <td> {{team.teamname}}</td>
+      <td> {{team.gold+team.food+team.military }}</td>
     </tr>
   </table>
 </div>
