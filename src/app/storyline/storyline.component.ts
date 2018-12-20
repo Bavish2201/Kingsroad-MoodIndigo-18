@@ -10,9 +10,17 @@ import { Router } from '@angular/router';
 })
 export class StorylineComponent implements OnInit {
 
+  add_storyline = false;
+
   question: string;
-  food_ratio: number;
-  military_ratio: number;
+  agriculture_ratio: number;
+  infantry_ratio: number;
+  cavalry_ratio: number;
+  siege_ratio: number;
+  technology_ratio: number;
+  finance_ratio: number;
+  industry_ratio: number;
+  transport_ratio: number;
   research_ratio: number;
   gold_ratio: number;
 
@@ -28,11 +36,29 @@ export class StorylineComponent implements OnInit {
   }
 
   saveStoryline() {
-    if (this.food_ratio === undefined) {
-     this.food_ratio = 0;
+    if (this.agriculture_ratio === undefined) {
+     this.agriculture_ratio = 0;
     }
-    if (this.military_ratio === undefined) {
-      this.military_ratio = 0;
+    if (this.infantry_ratio === undefined) {
+      this.infantry_ratio = 0;
+    }
+    if (this.cavalry_ratio === undefined) {
+      this.cavalry_ratio = 0;
+    }
+    if (this.siege_ratio === undefined) {
+      this.siege_ratio = 0;
+    }
+    if (this.technology_ratio === undefined) {
+      this.technology_ratio = 0;
+    }
+    if (this.finance_ratio === undefined) {
+      this.finance_ratio = 0;
+    }
+    if (this.industry_ratio === undefined) {
+      this.industry_ratio = 0;
+    }
+    if (this.transport_ratio === undefined) {
+      this.transport_ratio = 0;
     }
     if (this.research_ratio === undefined) {
       this.research_ratio = 0;
@@ -42,9 +68,15 @@ export class StorylineComponent implements OnInit {
     }
     const story = {
       question: this.question,
-      food: this.food_ratio,
-      military: this.military_ratio,
+      agriculture: this.agriculture_ratio,
+      infantry: this.infantry_ratio,
+      cavalry: this.cavalry_ratio,
+      siege: this.siege_ratio,
+      technology: this.technology_ratio,
+      finance: this.finance_ratio,
+      industry: this.industry_ratio,
       research: this.research_ratio,
+      transport: this.transport_ratio,
       gold: this.gold_ratio
     };
     this.adminService.addStoryline(story).subscribe(res => {
@@ -52,10 +84,7 @@ export class StorylineComponent implements OnInit {
         alert('Some error occured');
       } else {
         this.question = '';
-        this.food_ratio = 0;
-        this.military_ratio = 0;
-        this.research_ratio = 0;
-        this.gold_ratio = 0;
+        this.add_storyline = false;
         this.getStorylines();
       }
     });

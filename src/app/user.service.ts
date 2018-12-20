@@ -52,12 +52,27 @@ export class UserService {
     });
   }
 
-  invest(teamid: string, gold: number, military: number, food: number) {
+  invest(teamid: string,
+          gold: number,
+          agriculture: number,
+          infantry: number,
+          cavalry: number,
+          siege: number,
+          technology: number,
+          finance: number,
+          industry: number,
+          transport: number) {
     return this.http.post<any>('http://localhost:3000/api/team/invest', {
         teamid: teamid,
         gold: gold,
-        military: military,
-        food: food
+        agriculture: agriculture,
+        infantry: infantry,
+        cavalry: cavalry,
+        siege: siege,
+        technology: technology,
+        finance: finance,
+        industry: industry,
+        transport: transport
     });
   }
 

@@ -6,15 +6,57 @@
     <p class="points">Available Gold: {{gold}}</p>
 
     <mat-form-field appearance="outline">
-      <mat-label id="input">Food</mat-label>
-      <input matInput type="number" min="0" [(ngModel)]="food_invest"/>
+      <mat-label id="input">Agriculture</mat-label>
+      <input matInput type="number" min="0" [(ngModel)]="agriculture_invest"/>
     </mat-form-field>
 
     <br>
 
     <mat-form-field appearance="outline">
-      <mat-label id="input">Milirary</mat-label>
-      <input matInput type="number" min="0" [(ngModel)]="military_invest"/>
+      <mat-label id="input">Infantry</mat-label>
+      <input matInput type="number" min="0" [(ngModel)]="infantry_invest"/>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="outline">
+      <mat-label id="input">Cavalry</mat-label>
+      <input matInput type="number" min="0" [(ngModel)]="cavalry_invest"/>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="outline">
+      <mat-label id="input">Siege</mat-label>
+      <input matInput type="number" min="0" [(ngModel)]="siege_invest"/>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="outline">
+      <mat-label id="input">Technology</mat-label>
+      <input matInput type="number" min="0" [(ngModel)]="technology_invest"/>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="outline">
+      <mat-label id="input">Finance</mat-label>
+      <input matInput type="number" min="0" [(ngModel)]="finance_invest"/>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="outline">
+      <mat-label id="input">Industry</mat-label>
+      <input matInput type="number" min="0" [(ngModel)]="industry_invest"/>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="outline">
+      <mat-label id="input">Transport</mat-label>
+      <input matInput type="number" min="0" [(ngModel)]="transport_invest"/>
     </mat-form-field>
 
     <br>
@@ -23,8 +65,14 @@
       <mat-label>Research</mat-label>
       <mat-select [(value)]="research">
         <mat-option value="none">None</mat-option>
-        <mat-option value="food">Food</mat-option>
-        <mat-option value="milirary">Military</mat-option>
+        <mat-option value="agriculture">Agriculture</mat-option>
+        <mat-option value="infantry">infantry</mat-option>
+        <mat-option value="cavalry">cavalry</mat-option>
+        <mat-option value="siege">siege</mat-option>
+        <mat-option value="technology">technology</mat-option>
+        <mat-option value="finance">finance</mat-option>
+        <mat-option value="industry">industry</mat-option>
+        <mat-option value="transport">transport</mat-option>
       </mat-select>
     </mat-form-field>
 

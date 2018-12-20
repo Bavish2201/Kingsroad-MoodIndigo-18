@@ -6,8 +6,14 @@ const storySchema = mongoose.Schema({
     type: Boolean,
     default: false
   },
-  military_rate: Number,
-  food_rate: Number,
+  agriculture_rate: Number,
+  infantry_rate: Number,
+  cavalry_rate: Number,
+  siege_rate: Number,
+  technology_rate: Number,
+  finance_rate: Number,
+  industry_rate: Number,
+  transport_rate: Number,
   research_rate: Number,
   gold_rate: Number
 })

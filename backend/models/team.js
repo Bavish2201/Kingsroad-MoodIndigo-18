@@ -21,25 +21,47 @@ const teamSchema = mongoose.Schema({
     type: String,
     default: null
   },
+  invested: {
+    type: Boolean,
+    default: false
+  },
+
   gold: {
     type: Number,
     default: 100
   },
-  food: {
+
+  agriculture: {
     type: Number,
     default: 0
   },
-  military: {
+  infantry: {
     type: Number,
     default: 0
   },
-  research: {
+  cavalry: {
     type: Number,
     default: 0
   },
-  invested: {
-    type: Boolean,
-    default: false
+  siege: {
+    type: Number,
+    default: 0
+  },
+  technology: {
+    type: Number,
+    default: 0
+  },
+  finance: {
+    type: Number,
+    default: 0
+  },
+  industry: {
+    type: Number,
+    default: 0
+  },
+  transport: {
+    type: Number,
+    default: 0
   }
 })
 

@@ -57,9 +57,14 @@ router.post('/invest', (req, res, next) => {
   Team.findOneAndUpdate({_id: req.body.teamid}, {$set: {
     invested: true,
     gold: req.body.gold,
-    food: req.body.food,
-    military: req.body.military,
-    research: req.body.research
+    agriculture: req.body.agriculture,
+    infantry: req.body.infantry,
+    cavalry: req.body.cavalry,
+    siege: req.body.siege,
+    technology: req.body.technology,
+    finance: req.body.finance,
+    industry: req.body.industry,
+    transport: req.body.transport
   }}, (err, doc, r) => {
     if (!err) {
       res.json({
@@ -84,12 +89,30 @@ router.post('/trade', (req, __response, next) => {
     } else if (res.gold < req.body.gold) {
       status = 401;
       message = 'Not enough gold to trade';
-    } else if (res.military < req.body.military) {
+    } else if (res.agriculture < req.body.agriculture) {
       status = 401;
-      message = 'Not enough military to trade';
-    } else if (res.food < req.body.food) {
+      message = 'Not enough agriculture to trade';
+    } else if (res.infantry < req.body.infantry) {
       status = 401,
-      message = 'Not enough food to trade';
+      message = 'Not enough infantry to trade';
+    } else if (res.cavalry < req.body.cavalry) {
+      status = 401,
+      message = 'Not enough cavalry to trade';
+    } else if (res.siege < req.body.siege) {
+      status = 401,
+      message = 'Not enough siege to trade';
+    } else if (res.technology < req.body.technology) {
+      status = 401,
+      message = 'Not enough technology to trade';
+    } else if (res.finance < req.body.finance) {
+      status = 401,
+      message = 'Not enough finance to trade';
+    } else if (res.industry < req.body.industry) {
+      status = 401,
+      message = 'Not enough industry to trade';
+    } else if (res.transport < req.body.transport) {
+      status = 401,
+      message = 'Not enough transport to trade';
     }
     if (status !== 200) {
       __response.json({
@@ -107,14 +130,26 @@ router.post('/trade', (req, __response, next) => {
           console.log('here');
           Team.findOneAndUpdate({teamname: req.body.to_teamname}, {$inc:{
             gold: req.body.gold,
-            military: req.body.military,
-            food: req.body.food
+            agriculture: req.body.agriculture,
+            infantry: req.body.infantry,
+            cavalry: req.body.cavalry,
+            siege: req.body.siege,
+            technology: req.body.technology,
+            finance: req.body.finance,
+            industry: req.body.industry,
+            transport: req.body.transport
           }}, (err, doc, r) => {
 
             Team.findOneAndUpdate({teamname: req.body.from_teamname}, {$inc: {
               gold: -1 * req.body.gold,
-              military: -1 * req.body.military,
-              food: -1 * req.body.food
+              agriculture: -1 * req.body.agriculture,
+              infantry: -1 * req.body.infantry,
+              cavalry: -1 * req.body.cavalry,
+              siege: -1 * req.body.siege,
+              technology: -1 * req.body.technology,
+              finance: -1 * req.body.finance,
+              industry: -1 * req.body.industry,
+              transport: -1 * req.body.transport
             }}, (_err, _doc, _res) => {
 
               __response.json({

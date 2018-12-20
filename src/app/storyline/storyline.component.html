@@ -1,4 +1,6 @@
-<mat-card>
+<button mat-raised-button color="primary" *ngIf="!add_storyline" (click)="add_storyline = true">Add New Storyline</button>
+
+<mat-card *ngIf="add_storyline">
   <mat-card-title>Add Storyline</mat-card-title>
   <mat-form-field class="text-form" appearance="outline">
     <mat-label>
@@ -6,19 +8,53 @@
     </mat-label>
     <textarea matInput [(ngModel)]="question"></textarea>
   </mat-form-field>
-  <p>Return Ratio:</p>
+  <p>Interest Rate:</p>
+
   <mat-form-field appearance="outline">
-    <mat-label>Food</mat-label>
-    <input matInput type="number" min="0" step="0.01" [(ngModel)]="food_ratio"/>
+    <mat-label>Agriculture</mat-label>
+    <input matInput type="number" min="0" step="0.01" [(ngModel)]="agriculture_ratio"/>
   </mat-form-field>
+
   <mat-form-field appearance="outline">
-    <mat-label>Military</mat-label>
-    <input matInput type="number" min="0" step="0.01" [(ngModel)]="military_ratio"/>
+    <mat-label>Infantry</mat-label>
+    <input matInput type="number" min="0" step="0.01" [(ngModel)]="infantry_ratio"/>
   </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Cavalry</mat-label>
+    <input matInput type="number" min="0" step="0.01" [(ngModel)]="cavalry_ratio"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Siege</mat-label>
+    <input matInput type="number" min="0" step="0.01" [(ngModel)]="siege_ratio"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Technology</mat-label>
+    <input matInput type="number" min="0" step="0.01" [(ngModel)]="technology_ratio"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Finance</mat-label>
+    <input matInput type="number" min="0" step="0.01" [(ngModel)]="finance_ratio"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Industry</mat-label>
+    <input matInput type="number" min="0" step="0.01" [(ngModel)]="industry_ratio"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Transport</mat-label>
+    <input matInput type="number" min="0" step="0.01" [(ngModel)]="transport_ratio"/>
+  </mat-form-field>
+
   <mat-form-field appearance="outline">
     <mat-label>Research</mat-label>
     <input matInput type="number" min="0" step="0.01" [(ngModel)]="research_ratio"/>
   </mat-form-field>
+
   <mat-form-field appearance="outline">
     <mat-label>Gold</mat-label>
     <input matInput type="number" min="0" max="1" step="0.01" [(ngModel)]="gold_ratio"/>
@@ -31,8 +67,14 @@
 <mat-card *ngFor="let story of storylines; let i = index">
   <p>{{story.question}}</p>
   <p>Interest rates:
-    Food {{story.food_rate}},
-    Military {{story.military_rate}},
+    Agriculture {{story.agriculture_rate}},
+    Infantry {{story.infantry_rate}},
+    Cavalry {{story.cavalry_rate}},
+    Siege {{story.siege_rate}},
+    Technology {{story.technology_rate}},
+    Finance {{story.finance_rate}},
+    Industry {{story.industry_rate}},
+    Transport {{story.transport_rate}},
     Research {{story.research_rate}},
     Gold {{story.gold_rate}} </p>
   <mat-card-actions>

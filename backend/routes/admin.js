@@ -16,11 +16,18 @@ router.get('/leaderboard', (req, res, err) => {
   });
 });
 
+// add storyline
 router.post('/storyline', (req, res, err) => {
   const story = new Storyline({
     question: req.body.question,
-    military_rate: req.body.military,
-    food_rate: req.body.food,
+    agriculture_rate: req.body.agriculture,
+    infantry_rate: req.body.infantry,
+    cavalry_rate: req.body.cavalry,
+    siege_rate: req.body.siege,
+    technology_rate: req.body.technology,
+    finance_rate: req.body.finance,
+    industry_rate: req.body.industry,
+    transport_rate: req.body.transport,
     research_rate: req.body.research,
     gold_rate: req.body.gold
   });

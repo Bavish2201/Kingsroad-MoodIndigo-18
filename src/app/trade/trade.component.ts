@@ -10,9 +10,15 @@ export class TradeComponent implements OnInit {
 
   from: string;
   to: string;
-  food: number;
-  military: number;
   gold: number;
+  agriculture: number;
+  infantry: number;
+  cavalry: number;
+  siege: number;
+  technology: number;
+  finance: number;
+  industry: number;
+  transport: number;
 
   constructor(public adminService: AdminService) { }
 
@@ -20,16 +26,41 @@ export class TradeComponent implements OnInit {
   }
 
   trade() {
-    if (this.food === undefined) {
-      this.food = 0;
+    if (this.agriculture === undefined) {
+      this.agriculture = 0;
     }
-    if (this.military === undefined) {
-      this.military = 0;
+    if (this.infantry === undefined) {
+      this.infantry = 0;
     }
-    if (this.gold === undefined) {
-      this.gold = 0;
+    if (this.cavalry === undefined) {
+      this.cavalry = 0;
     }
-    this.adminService.trade(this.from, this.to, this.gold, this.food, this.military).subscribe(res => {
+    if (this.siege === undefined) {
+      this.siege = 0;
+    }
+    if (this.technology === undefined) {
+      this.technology = 0;
+    }
+    if (this.finance === undefined) {
+      this.finance = 0;
+    }
+    if (this.industry === undefined) {
+      this.industry = 0;
+    }
+    if (this.transport === undefined) {
+      this.transport = 0;
+    }
+    this.adminService.trade(this.from,
+                            this.to,
+                            this.gold,
+                            this.agriculture,
+                            this.infantry,
+                            this.cavalry,
+                            this.siege,
+                            this.technology,
+                            this.finance,
+                            this.industry,
+                            this.transport).subscribe(res => {
       if (res.status === 200) {
         alert('Trade successfull');
       } else {

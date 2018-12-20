@@ -18,14 +18,14 @@
   -->
   <table id="leaderBoard">
     <tr>
-      <th id="leftTop">Rank</th> 
-      <th>Team Name</th> 
+      <th id="leftTop">Rank</th>
+      <th>Team Name</th>
       <th id="rightTop">xp</th>
     </tr>
     <tr *ngFor="let team of teams; let i = index">
       <td>{{i+1}}</td>
       <td> {{team.teamname}}</td>
-      <td> {{team.gold+team.food+team.military }}</td>
+      <td> {{ calculateXP(team) }}</td>
     </tr>
   </table>
 </div>

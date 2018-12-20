@@ -59,13 +59,29 @@ export class AdminService {
     return this.http.get<any>('http://localhost:3000/api/admin/storyline/current');
   }
 
-  trade(from_teamname: string, to_teamname: string, gold: number, food: number, military: number) {
+  trade(from_teamname: string,
+        to_teamname: string,
+        gold: number,
+        agriculture: number,
+        infantry: number,
+        cavalry: number,
+        siege: number,
+        technology: number,
+        finance: number,
+        industry: number,
+        transport: number) {
     return this.http.post<any>('http://localhost:3000/api/team/trade', {
       from_teamname: from_teamname,
       to_teamname: to_teamname,
       gold: gold,
-      military: military,
-      food: food
+      agriculture: agriculture,
+      infantry: infantry,
+      cavalry: cavalry,
+      siege: siege,
+      technology: technology,
+      finance: finance,
+      industry: industry,
+      transport: transport
     });
   }
 

@@ -11,8 +11,14 @@ export class TeamHomeComponent implements OnInit {
   team = {
     teamname: null,
     gold: null,
-    food: null,
-    military: null
+    agriculture: null,
+    infantry: null,
+    cavalry: null,
+    siege: null,
+    technology: null,
+    finance: null,
+    industry: null,
+    transport: null,
   };
 
   constructor(public userService: UserService) { }

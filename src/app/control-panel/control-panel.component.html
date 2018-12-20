@@ -6,7 +6,15 @@
   <button mat-stroked-button color="primary" (click)="getTeam()">Get Team Details</button>
   <div *ngIf="showTeamDetails">
     <p>Teamname: {{team.teamname}}</p>
-    <p>Gold: {{team.gold}}, Military: {{team.military}}, food: {{team.food}}</p>
+    <p>Gold: {{team.gold}},
+      agriculture: {{team.agriculture}},
+      infantry: {{team.infantry}},
+      cavalry: {{team.cavalry}},
+      siege: {{team.siege}},
+      technology: {{team.technology}},
+      finance: {{team.finance}},
+      industry: {{team.industry}},
+      transport: {{team.transport}} </p>
     <p>Team Members: {{team.user1}}, {{team.user2}}, {{team.user3}}, {{team.user4}}</p>
     <button mat-stroked-button (click)="showTeamDetails = false">Close</button>
   </div>
