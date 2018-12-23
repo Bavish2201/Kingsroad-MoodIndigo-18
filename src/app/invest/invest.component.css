@@ -12,3 +12,20 @@
 mat-card-actions{
   margin-left: 0;
 }
+#invest{
+  color: white;
+  background-color: #3f51b5;
+  text-align: center;
+  border-width: 2px solid white;
+  border-radius: 14px;
+}
+#avgold{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #3f51b5;
+  text-align: center;
+  background-color: #f2f2f2;
+  border-style: solid white;
+  border-width: 2px;
+  border-radius: 14px;
+}
